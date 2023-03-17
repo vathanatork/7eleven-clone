@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-logo{
+    @apply w-5 cursor-pointer;
+}
+
+.header-icon-hover{
+    @apply stroke-orange-900;
+}
+
+.toggle-header-md{
+    @apply grid grid-cols-3 gap-x-12 font-bold grid-flow-row text-4xl;;
+}
+
+/* home-hero-category */
+.home-category-svg{
+    @apply w-14 h-14
+}
+
+.home-flex-center{
+    @apply flex justify-center items-center flex-col
+}
