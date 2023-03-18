@@ -6,7 +6,7 @@
 <section class="lg:px-40 md:px-10 px-5 py-10  text-gray-700 body-font overflow-hidden bg-white">
     <div class="sm:flex-row justify-center w-full h-96 flex flex-col gap-8">
         <div class='sm:w-1/3 sm:h-full w-full flex justify-center'>
-            <img class='sm:w-full sm:h-full sm:object-right w-full object-cover object-center'src="{!!asset('img/products')!!}{{$product->image}}" alt="image product">
+            <img class='sm:w-full sm:h-full sm:object-right w-full object-cover object-center'src="{!!asset('img/'.$product->image)!!}" alt="image product">
         </div>
         <div class='sm:items-start flex flex-col gap-3 justify-center items-center'>
             <h3 class='font-semibold text-3xl'>{{$product->category->Name}}</h3>

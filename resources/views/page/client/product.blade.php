@@ -117,7 +117,7 @@
             {{-- product 1 --}}
             <div class="w-full max-w-sm bg-gray-100  ">
                 <a href="{!!url('/store/detail')!!}/{{$product->id}}">
-                    <img class="p-8 rounded-t-lg" src="{!!asset('img/products'.$product->image)!!}" alt="product image" />
+                    <img class="p-8 rounded-t-lg" src="{!!asset('img/'.$product->image)!!}" alt="product image" />
                 </a>
                 <div class="px-5 pb-5 text-center">
                     {{-- price --}}

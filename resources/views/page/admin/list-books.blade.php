@@ -9,7 +9,7 @@
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item text-danger" href="{!!url('admin/product/filter/title')!!}">Title</a>
-            <a class="dropdown-item text-danger" href="{!!url('admin/product/filter/category_id')!!}">Category</a>
+            <a class="dropdown-item text-danger" href="{!!url('admin/product/filter/category')!!}">Category</a>
         </div>
     </div>
     <!-- Example single danger button -->
@@ -24,7 +24,7 @@
         </div>
     </div>
     {{-- table --}}
-    <table class="table mt-5">
+    <table class="table mt-5 ">
         <tr>
             <th>ID</th>
             <th>Title</th>
@@ -36,12 +36,11 @@
         </tr>  
         @foreach ($books as $book)
         <tr> 
-            
             <td><a href="{!!url('admin/product')!!}/{{$book->id}}" class="text-dark text-decoration-none">#{{$book->id}}</a></td>
             <td><a href="{!!url('admin/product')!!}/{{$book->id}}" class="text-dark text-decoration-none">{{$book->title}}</a></td>
             <td><a href="{!!url('admin/product')!!}/{{$book->id}}" class="text-dark text-decoration-none">{{$book->description}}</a></td>
-            <td><a href="{!!url('admin/product')!!}/{{$book->id}}" class="text-dark text-decoration-none">{{$book->category->Name}}</a></td>
-            <td><img src="{!!asset('img/products'.$book->image)!!}" alt="img" object-fit='fit'></td>
+            <td ><a href="{!!url('admin/product')!!}/{{$book->id}}" class="text-dark text-decoration-none">{{$book->Name}}</a></td>
+            <td><img src="{!!asset('img/'.$book->image)!!}" alt="img" object-fit='fit'></td>
             <td><a href="{!! url('admin/product')!!}/{{$book->id}}/edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td>
                 {!!Form::open(['url'=>['admin/product',$book->id],'method'=>'delete'])!!}
@@ -52,5 +51,7 @@
         @endforeach
         
     </table>
+    {{ $books->links() }}
+
     
 @endsection

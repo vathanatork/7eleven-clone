@@ -19,7 +19,7 @@ Route::get('/admin', function () {return redirect()->view('page.admin.layout.ind
 
 //product route
 Route::resource('/admin/product',ProductController::class);
-Route::GET('/admin/product/search/{id}',[ProductController::class,'sortBycategory']);
+Route::GET('/admin/product/search/{id}',[ProductController::class,'sortByType']);
 Route::GET('/admin/product/filter/{search}',[ProductController::class,'filterProduct']);
 Route::GET('/admin/search',[ProductController::class,'search']);
 
@@ -29,4 +29,5 @@ Route::GET('/admin/category/filter/{searh}',[CategoryController::class,'selectBy
 
 //client route
 Route::GET('/store',[ClientController::class,'index']);
+Route::GET('/store/{search}',[ClientController::class,'sortByCategory']);
 Route::GET('/store/detail/{id}',[ClientController::class,'show']);

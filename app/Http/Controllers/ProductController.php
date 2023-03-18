@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+use File;
 use Validator;
 class ProductController extends Controller
 {
@@ -15,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $sorts = DB::select("SELECT DISTINCT Name FROM  categories");
-        $books = Product::all();
+        $books = Product::paginate(10);
         return view('page.admin.list-books')->with('books',$books)->with('distinctItems',$sorts);
     }
 
@@ -49,7 +51,7 @@ class ProductController extends Controller
     
         // Create The product
         $image = $request->file('image');
-        $upload = 'img/products';
+        $upload = 'img/';
         $filename = time().$image->getClientOriginalName();
         move_uploaded_file($image->getPathName(), $upload. $filename);
     
@@ -123,18 +125,58 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         $book = Product::find($id);
+        $imagepath = 'img/'.$book->image;
+        File::delete($imagepath);
         $book->delete();
         return redirect()->back();
     }
 
-    public function sortBycategory(string $search){
+    // sort by type
+    public function sortByType(string $search){
         
+        // $products = DB::select("select products.id,products.title,products.description,
+        //                         products.image,categories.Name From products 
+        //                         INNER JOIN categories On products.category_id = categories.id and categories.type = '$search'");
+
+        //----- raw sql than hydrating or covert to Model --------------------------------
+
+        // $query = "select products.id,products.title,products.description,
+        //                          products.image,categories.Name From products 
+        //                          INNER JOIN categories On products.category_id = categories.id and categories.type = '$search'";
+        // $products = Product::hydrate(
+        //     DB::select( $query)
+        // );
+
+        //-------------modify code to query bulder to use paginate buildin function --
+
+        $products = DB::table('products')
+                    ->join('categories', function ($join) use ($search) {
+                        $join->on('products.category_id', '=', 'categories.id')
+                            ->where('categories.type', '=', $search);
+                    })
+                    ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
+                    ->paginate(2);
+        
+        return view('page.admin.list-books')->with('books',$products);
     }
+
+    // filter by Title and Category ASC
 
     public function filterProduct(string $filter){
-        
+        if($filter=='category'){
+            $products = DB::select('select products.id,products.title,products.description,
+            products.image,categories.Name From products 
+            INNER JOIN categories On products.category_id = categories.id Order by categories.Name');
+        }else if($filter=='title'){
+            $products = DB::select('select products.id,products.title,products.description,
+            products.image,categories.Name From products 
+            INNER JOIN categories On products.category_id = categories.id Order by products.title');
+        }
+        return view('page.admin.list-books')->with('books',$products);;
     }
 
+    // searching
+    
     public function search(Request $request){
         $keyword = !empty($request->input('search'))?$request->input('search'):"";
         $categories = Category::all();
