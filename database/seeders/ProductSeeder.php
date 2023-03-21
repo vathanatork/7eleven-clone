@@ -12,9 +12,9 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         //Let's truncate our existing records to start from scratch.
-        product::truncate();
+        //product::truncate();
         $faker = \Faker\Factory::create();
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             Product::create([
                 'title' => $faker->word,
                 'price' => $faker->randomFloat(2, 0, 1000),

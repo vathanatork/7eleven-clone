@@ -38,4 +38,4 @@
     </div>  
 </div> 
 
-@include('../page/client/layout/regester');
+@include('../page/client/layout/regester')

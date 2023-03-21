@@ -16,11 +16,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $sorts = DB::select("SELECT DISTINCT Name FROM  categories");
-        $books = Product::paginate(10);
-        return view('page.admin.list-books')->with('books',$books)->with('distinctItems',$sorts);
+        $products = DB::table('products')
+                    ->join('categories', function ($join) {
+                        $join->on('products.category_id', '=', 'categories.id');
+                    })
+                    ->select('products.id', 'products.title', 'products.description','products.price', 'products.image', 'categories.Name')
+                    ->paginate();
+        return view('page.admin.list-books')->with('books',$products);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -134,19 +137,6 @@ class ProductController extends Controller
     // sort by type
     public function sortByType(string $search){
         
-        // $products = DB::select("select products.id,products.title,products.description,
-        //                         products.image,categories.Name From products 
-        //                         INNER JOIN categories On products.category_id = categories.id and categories.type = '$search'");
-
-        //----- raw sql than hydrating or covert to Model --------------------------------
-
-        // $query = "select products.id,products.title,products.description,
-        //                          products.image,categories.Name From products 
-        //                          INNER JOIN categories On products.category_id = categories.id and categories.type = '$search'";
-        // $products = Product::hydrate(
-        //     DB::select( $query)
-        // );
-
         //-------------modify code to query bulder to use paginate buildin function --
 
         $products = DB::table('products')
@@ -155,7 +145,7 @@ class ProductController extends Controller
                             ->where('categories.type', '=', $search);
                     })
                     ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
-                    ->paginate(2);
+                    ->paginate(4);
         
         return view('page.admin.list-books')->with('books',$products);
     }
