@@ -22,32 +22,41 @@
         </div>
     </div>
     {{-- right aside icon --}}
-    <div class='flex justify-between gap-3 md:flex' data-left-aside>
-            {{-- location icon --}}
-            <a href="#">
-                <div class='flex items-center text-xs hover:text-orange-500'>
-                    <div class="header-logo md:w-8">
-                        <svg class="hover:stroke-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                        </svg>
-                    </div>
-                    <div>Find the store</div>
-                </div>
-            </a>
-            {{-- location icon --}}
-            <a href="#">
-                <div class='header-logo md:w-8' data-modal-toggle="authentication-modal">
+    <div class='flex justify-between items-center gap-3 md:flex' data-left-aside>
+            @auth
+                <div class='header-logo md:w-8' >
                     <svg class="hover:stroke-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                 </div>
-            </a>  
+                {{-- if user sign in make this visible --}}
+                <form action="/logout" method="Post">
+                    @csrf
+                    <button type="submit" class="cursor-pointer font-bold text-md text-black hover:text-orange-500">Logout</button>
+                </form>  
+            @else
+                {{-- user icon --}}
+                <div class='header-logo md:w-8' >
+                    <svg class="hover:stroke-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+
+                <button class=" cursor-pointer font-bold text-md text-black hover:text-orange-500 " data-modal-toggle="authentication-modal">Login</button>
+            @endauth
     </div>    
 </section>
-@include('../page/client/layout/login')
+
+{{-- login and logout --}}
+@guest
+    {{-- if user is guest make this visible --}}
+    @include('../page/client/layout/login')
+@endguest
+
+
+{{-- small screen --}}
 {{-- slide nav --}}
-<div class='bg-white pb-10 absolute lef-0 top-0 mt-2 pl-3 md:hidden hidden  md:px-40  md:text-lg' data-slide-nav>
+<div class='z-20 shadow-md shadow-blur-20  bg-white pb-10 absolute lef-0 top-0 mt-2 pl-3 md:hidden hidden  md:px-40  md:text-lg' data-slide-nav>
     {{-- header category--}}
     <div class="flex justify-between w-screen pr-5 md:hidden">
         {{-- logo --}}
@@ -67,6 +76,6 @@
         <div class='cursor-pointer'><a href="#">Order7NOWDelivery</a></div>
         <div class='cursor-pointer'><a href="#">Shop7Collection</a></div>
     </div>
-    @include('../page/client/layout/food')
-    @include('../page/client/layout/drink')
+    @include('../page/client/layout/food-nav')
+    @include('../page/client/layout/drink-nav')
 </div>

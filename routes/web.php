@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,20 +15,26 @@ use App\Http\Controllers\ClientController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {return view('page.client.home');});
 Route::get('/admin', function () {return redirect()->view('page.admin.layout.index');});
 
-//product route
+//product routes
 Route::resource('/admin/product',ProductController::class);
 Route::GET('/admin/product/search/{id}',[ProductController::class,'sortByType']);
 Route::GET('/admin/product/filter/{search}',[ProductController::class,'filterProduct']);
 Route::GET('/admin/search',[ProductController::class,'search']);
 
-//category route
+//category routes
 Route::resource('/admin/category',CategoryController::class);
 Route::GET('/admin/category/filter/{searh}',[CategoryController::class,'selectByCategory']);
 
-//client route
+//client routes
 Route::GET('/store',[ClientController::class,'index']);
 Route::GET('/store/{search}',[ClientController::class,'sortByCategory']);
 Route::GET('/store/detail/{id}',[ClientController::class,'show']);
+
+//register routes
+Route::POST('/register',[RegisterController::class,'store'])->middleware('guest');
+Route::POST('/logout',[RegisterController::class,'destroy'])->middleware('auth');
+Route::POST('/login',[RegisterController::class,'login'])->middleware('guest');
