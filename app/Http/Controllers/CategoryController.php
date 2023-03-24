@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\message;
 use Illuminate\Support\Facades\DB;
 use Validator;
 class CategoryController extends Controller
@@ -12,9 +13,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $items = Category::all();
+        $messages = message::where('slag','1')->paginate(4);
+        $items = Category::paginate(5);
         $sorts = DB::select("SELECT DISTINCT type FROM categories");
-        return view('page.admin.category.list-category')->with('categoryItems',$items)->with('distinctItems',$sorts);
+        return view('page.admin.category.list-category')->with('categoryItems',$items)->with('distinctItems',$sorts)->with('messages',$messages);
     }
 
     /**
@@ -22,7 +24,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('page.admin.category.create-category');
+        $messages = message::where('slag','1')->paginate(4);
+        return view('page.admin.category.create-category')
+        ->with('messages', $messages);
     }
 
     /**
@@ -63,8 +67,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
+        $messages = message::where('slag','1')->paginate(4);
         $category = Category::find($id);
-        return view('page.admin.category.edit-category')->with('category',$category);
+        return view('page.admin.category.edit-category')->with('category',$category)->with('messages',$messages);
     }
 
     /**
@@ -100,8 +105,9 @@ class CategoryController extends Controller
     }
 
     public function selectByCategory(string $search){
+        $messages = message::where('slag','1')->paginate(4);
         $categorys = DB::select("SELECT * FROM  categories where type ='$search'");
         $sorts = DB::select("SELECT DISTINCT type FROM  categories");
-        return view('page.admin.category.list-category')->with('categoryItems',$categorys)->with('distinctItems',$sorts);
+        return view('page.admin.category.list-category')->with('categoryItems',$categorys)->with('distinctItems',$sorts)->with('messages',$messages);
     } 
 }

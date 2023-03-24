@@ -18,7 +18,8 @@ module.exports = {
         // => @media (min-width: 640px) { ... }
       },
       colors: {
-        '7eleven':'#007351'
+        '7eleven':'#007351',
+        '7elven-gray':'#F1F1F1'
       },
       height: ({ theme }) => ({
         'big':'550px',

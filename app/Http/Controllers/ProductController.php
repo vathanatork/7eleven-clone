@@ -9,28 +9,31 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use File;
 use Validator;
+use App\Models\message;
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+        $messages = message::where('slag','1')->paginate(4);
         $products = DB::table('products')
                     ->join('categories', function ($join) {
                         $join->on('products.category_id', '=', 'categories.id');
                     })
                     ->select('products.id', 'products.title', 'products.description','products.price', 'products.image', 'categories.Name')
-                    ->paginate();
-        return view('page.admin.list-books')->with('books',$products);
+                    ->paginate(5);
+        return view('page.admin.list-books')->with('books',$products)->with('messages',$messages);
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
+        $messages = message::where('slag','1')->paginate(4);;
         $categorys = Category::all();
-        return view('page.admin.create-book')->with('categorys', $categorys);
+        return view('page.admin.create-book')->with('categorys', $categorys)->with('messages', $messages);
     }
 
     /**
@@ -72,9 +75,10 @@ class ProductController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
+    {   
+        $messages = message::paginate(4);
         $book = Product::find($id);
-        return view('page.admin.show-book')->with('book', $book);
+        return view('page.admin.show-book')->with('book', $book)->with('messages', $messages);
     }
 
     /**
@@ -82,9 +86,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $book = Product::find($id);
+        $messages = message::where('slag','1')->paginate(4);
+        $product = Product::find($id);
         $categorys = category::all();
-        return view('page.admin.edit-book')->with('book', $book)->with('categorys', $categorys);
+        return view('page.admin.edit-book')->with('product', $product)->with('categorys', $categorys)->with('messages', $messages);
     }
 
     /**
@@ -138,48 +143,56 @@ class ProductController extends Controller
     public function sortByType(string $search){
         
         //-------------modify code to query bulder to use paginate buildin function --
-
+        $messages = message::where('slag','1')->paginate(4);
         $products = DB::table('products')
                     ->join('categories', function ($join) use ($search) {
                         $join->on('products.category_id', '=', 'categories.id')
                             ->where('categories.type', '=', $search);
                     })
                     ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
-                    ->paginate(4);
+                    ->paginate(10);
         
-        return view('page.admin.list-books')->with('books',$products);
+        return view('page.admin.list-books')->with('books',$products)->with('message',$message);
     }
 
     // filter by Title and Category ASC
 
     public function filterProduct(string $filter){
+        $messages = message::where('slag','1')->paginate(4);
         if($filter=='category'){
-            $products = DB::select('select products.id,products.title,products.description,
-            products.image,categories.Name From products 
-            INNER JOIN categories On products.category_id = categories.id Order by categories.Name');
+            $products = DB::table('products')
+            ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->orderBy('categories.Name')
+            ->paginate(5);
         }else if($filter=='title'){
-            $products = DB::select('select products.id,products.title,products.description,
-            products.image,categories.Name From products 
-            INNER JOIN categories On products.category_id = categories.id Order by products.title');
+            $products = DB::table('products')
+            ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->orderBy('products.title')
+            ->paginate(5);
         }
-        return view('page.admin.list-books')->with('books',$products);;
+        return view('page.admin.list-books')->with('books',$products)->with('messages',$messages);
     }
 
     // searching
     
     public function search(Request $request){
+        $messages = message::where('slag','1')->paginate(4);
         $keyword = !empty($request->input('search'))?$request->input('search'):"";
         $categories = Category::all();
         if( $keyword != ""){
             return view('page/admin/search-book')
                 ->with('products', Product::where('title', 'LIKE', '%'.$keyword.'%')->paginate(2))
                 ->with('keyword', $keyword)
-                ->with('categories', $categories);
+                ->with('categories', $categories)
+                ->with('messages',$messages);
         } else {
             return view('page/admin/product')
-                ->with('products', Product::paginate(2))
+                ->with('products', Product::paginate(5))
                 ->with('keyword', $keyword)
-                ->with('categories', $categories);
+                ->with('categories', $categories)
+                ->with('messages',$messages);
         }
     }
 }

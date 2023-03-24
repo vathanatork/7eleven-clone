@@ -1,7 +1,7 @@
 @extends('../page/admin/layout/index')
 
 @section('content')
-    <h1 class='mb-3'>Create category</h1>
+    <h1 class='mb-3'>Edit category</h1>
     {!!Form::open(array('url'=>['admin/category',$category->id],'method'=>'PUT'))!!}
         <div>
             {!!Form::label('type','Type')!!}

@@ -3,18 +3,18 @@
 @section('content')
 
 {{-- hero img --}}
-<section class='w-full bg-black sm:flex sm:flex-row-reverse'>
+<section class='lg:mt-20 sm:mt-10 mt-10 w-full bg-black sm:flex sm:flex-row-reverse'>
     {{-- img --}}
     <div class='w-full h-96 sm:h-64 md:h-4/5'>
         <img class='w-full h-96 sm:h-64 md:h-4/5 object-cover'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt30bf5cbc144ae105%2F63e522f56918a756577e82ce%2FClydesCoffee-Mobile.gif&w=750&q=75" alt="img">
     </div>
 
     {{-- text --}}
-    <div class='lg:ml-40 sm:ml-10 sm:text-left sm:justify-center sm:items-start sm:gap-2  py-3 px-5 text-center flex flex-col items-center w-full text-white gap-1'>
+    <div class='lg:ml-40 sm:ml-10 sm:text-left sm:justify-center sm:items-start sm:gap-3  py-10 px-5 text-center flex flex-col items-center w-full text-white gap-3'>
         <h5 class='md:text-base text-xs font-bold'>LIMITED TIME ONLY</h5>
         <H1 class='md:text-xl font-bold text-base'>CLYDE's Coffee Blend</H1>
         <p class="md:text-xl text-xs ">He may not be the smartest ghost,but he has good taste in coffe.Try our new CLYDE's coffee Blend to feel like you ate POWER PELLETS.</p>
-        <a href="{!!url('/store')!!}"><button class='mt-2 text-black rounded-3xl px-3 py-2 flex justify-center font-bold items-center h-9 w-32 bg-white'>Find a Store</button></a>
+        <a href="{!!url('/store')!!}"><button class='mt-2 text-black rounded-3xl px-3 py-2 flex justify-center font-bold items-center h-9 w-32 bg-white'>Shop now</button></a>
     </div>
 </section>
 
@@ -22,7 +22,7 @@
 <section class='lg:px-40 lg:text-base md:px-10 sm:grid-cols-6 text-xs gap-y-5 py-5 w-full grid grid-cols-3 grid-flow-row'>
     {{-- item 1 --}}
     <div>
-        <a href="{!!url('/store/Hot Food')!!}" class='home-flex-center hover:scale-105 hover:duration-100'>
+        <a href="{!!url('/store/Hot Foods')!!}" class='home-flex-center hover:scale-105 hover:duration-100'>
             <svg class="home-category-svg" aria-hidden="true" focusable="false" data-prefix="fak" data-icon="burger" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 512" data-fa-i2svg="" ><path fill="currentColor" d="M266.594 438.472c-77.105 0-146.84-16.886-181.993-44.064-9.68-7.473-15.46-19.453-15.46-32.043 0-20.115 4.844-33.487 14.393-39.74 4.975-3.251 13.44-6.018 25.546-.741 31.365 13.674 97.226 28.216 157.52 28.216 3.588 0 7.17-.04 10.696-.114 6.264.08 11.45 4.843 11.575 11.095.125 6.264-4.838 11.45-11.096 11.58-3.691.075-7.422.115-11.176.115-56.528 0-126.582-12.665-166.584-30.104-2.96-1.295-4.13-1.055-4.13-1.05-.793.53-4.062 5.705-4.062 20.737 0 5.448 2.613 10.982 6.652 14.096 30.903 23.898 96.895 39.335 168.124 39.335 75.2 0 144.593-17.343 172.671-43.145 3.326-3.052 5.237-7.525 5.237-12.277 0-15.654-1.683-21.028-2.652-22.825-.53.12-1.335.371-2.47.885-9.276 4.216-38.861 14.878-49.786 18.135-6.013 1.774-12.322-1.626-14.108-7.621-1.797-6.008 1.615-12.323 7.628-14.114 10.103-3.018 38.415-13.2 46.898-17.057 11.438-5.186 19.328-2.721 23.937.25 12.203 7.873 13.224 25.992 13.224 42.347 0 11.079-4.587 21.65-12.579 28.98-32.46 29.842-106.256 49.124-188.005 49.124zm1.569-159.522c-113.462 0-199.016-37.155-199.016-86.41 0-69.5 87.42-123.94 199.016-123.94 111.601 0 199.02 54.44 199.02 123.94 0 49.26-85.559 86.41-199.02 86.41zm0-187.669c-97.232 0-176.34 45.427-176.34 101.26 0 30.143 72.416 63.727 176.34 63.727 103.917 0 176.339-33.59 176.339-63.727 0-55.833-79.108-101.26-176.34-101.26zm63.613 300.44c-17.736 0-27.075-20.628-35.392-38.974-1.923-4.245-3.817-8.438-5.756-12.214-4.65-9.06-15.146-14.656-22.226-14.656h-.023c-89.416 0-168.335-22.585-196.596-56.208-4.028-4.798-3.412-11.946 1.386-15.98 4.792-4.021 11.951-3.405 15.979 1.381 23.817 28.336 97.431 48.125 179.015 48.125 14.467-.005 33.538 9.23 42.648 26.978 2.088 4.079 4.153 8.62 6.235 13.218 3.572 7.884 11.016 24.302 15.29 25.637 5.84-.981 12.806-25.523 16.15-37.315.73-2.567 1.454-5.117 2.196-7.627 5.624-19.208 23.48-32.563 38.683-37.28 29.927-9.316 51.332-21.724 60.254-34.936 3.508-5.186 10.554-6.55 15.745-3.047 5.191 3.509 6.56 10.56 3.046 15.751-11.963 17.713-36.967 32.894-72.307 43.892-9.185 2.847-20.589 11.53-23.664 21.998l-2.127 7.445c-7.017 24.718-14.262 50.281-34.685 53.504a25.277 25.277 0 01-3.851.308zM211.651 161.883c0 6.258-5.088 11.341-11.34 11.341-6.27 0-11.347-5.083-11.347-11.34 0-6.276 5.077-11.342 11.346-11.342 6.253 0 11.341 5.066 11.341 11.341m-40.669 6.869c0 6.258-5.065 11.34-11.34 11.34-6.253 0-11.342-5.082-11.342-11.34s5.078-11.341 11.341-11.341c6.276 0 11.341 5.083 11.341 11.34m28.94 33.111c0 6.258-5.094 11.341-11.346 11.341-6.27 0-11.336-5.077-11.336-11.335 0-6.27 5.072-11.341 11.336-11.341 6.258 0 11.346 5.077 11.346 11.335"></path></svg>
             <p>Hot Food</p>
         </a>
@@ -36,7 +36,7 @@
     </div>
     {{-- item 3 --}}
     <div>
-        <a href="{!!url('/store/Snack Food')!!}" class='home-flex-center hover:scale-105 hover:duration-100'>
+        <a href="{!!url('/store/Snakes')!!}" class='home-flex-center hover:scale-105 hover:duration-100'>
             <svg class="home-category-svg" aria-hidden="true" focusable="false" data-prefix="fak" data-icon="snack" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 512" data-fa-i2svg="" ><path fill="currentColor" d="M397.112 419.19l-10.183-20.572h-.011c4.478-11.41 7.399-22.573 9.727-45.272 2.572-25.118 3.987-59.478 3.987-95.623 0-92.976-6.828-127.113-13.897-139.43l10.577-24.347c2.105-1.82 2.105-4.148 2.105-6.897 0-4.433-3.063-8.284-7.33-9.214-2.294-.479-4.627-.08-6.55 1.062-21.592 4.3-209.985 4.29-231.59-.012a9.101 9.101 0 00-6.56-1.078c-4.26.93-7.313 4.746-7.313 9.173 0 2.784.57 4.89 1.985 6.504l10.622 24.364c-4.563 7.422-7.49 21.365-9.84 44.246-2.579 25.124-3.993 58.873-3.993 95.03 0 92.496 6.771 126.468 13.794 138.939l-10.258 21.923c-2.31 1.865-2.31 4.182-2.31 7.04 0 4.398 3 8.192 7.217 9.15a9.086 9.086 0 006.737-1.084c21.66-4.393 209.792-4.393 231.452 0a9.106 9.106 0 006.743 1.084c4.2-.97 7.2-4.763 7.2-9.15-.006-2.853-.006-3.965-2.31-5.836zm-29.818-21.245l7.062 15.118c-18.272-1.426-49.905-1.957-104.625-1.957-54.702 0-86.324.525-104.613 1.962l7.074-15.117a9.543 9.543 0 00-.548-9.03 9.331 9.331 0 00-3.993-3.538c-13.418-24.41-13.418-232.114 0-256.53a9.176 9.176 0 003.93-3.423 9.508 9.508 0 00.702-8.91l-7.73-17.725c5.933.336 13.212.582 22.077.872 21.952.714 51.469 1.107 83.096 1.107 55.284 0 86.985-.525 105.19-1.98l-7.742 17.72c-1.272 2.892-.993 6.252.702 8.91.992 1.523 2.35 3.617 3.942 4.336 13.406 24.416 13.406 228.925 0 257.449h-.012c-1.614 0-3.018 1.055-3.999 2.624-1.671 2.721-1.882 5.209-.513 8.112zm-142.06-84.92c1.29.205 2.567.319 3.874.319 9.504 0 19.579-5.75 30.018-17.137 2.887-3.143 5.54-6.32 7.981-9.105 15.13-17.011 20.423-19.693 30.732-19.693h.114c5.893 0 10.976 3.144 15.277 3.144 8.894 0 14.615-3.423 18.187-7.085 7.01-7.251 8.357-18.461 6.08-25.37-3.89-11.871-15.887-26.532-37.884-32.225-21.393-5.546-39.05 14.98-46.266 25.106-11.883-1.495-23.743-.211-33.087 6.891-19.682 14.97-23.863 35.484-12.214 61.383 3.309 7.354 9.75 12.516 17.188 13.772zm69.992-88.932c19.265 4.998 24.313 17.617 25.1 20.03.246 1.004.058 4.467-1.836 6.275-2.294 2.202-7.799 2.03-14.764-.337-4.045-2.464-16.133-9.401-30.732-14.376 6.133-6.868 14.536-13.577 22.232-11.592zm-64.264 28.923c3.634-2.766 8.471-3.913 13.868-3.913 8.671 0 18.826 2.91 27.993 6.51-6.418 4.808-12.419 11.551-19.025 18.979a697.356 697.356 0 01-7.787 8.682c-10.474 11.421-16.281 11.461-17.867 11.227-2.208-.376-3.326-2.356-3.857-3.565-5.722-12.722-8.888-26.11 6.675-37.92zm36.23 117.375c-82.712 0-82.712 1.717-82.712 12.887 0 5.477 4.119 9.932 9.207 9.932a8.474 8.474 0 004.022-1.004c15.003-2.584 123.975-2.584 138.973 0a8.524 8.524 0 004.022 1.004c5.094 0 9.202-4.444 9.202-9.932.005-11.175.005-12.887-82.713-12.887zm73.518-245.303a8.49 8.49 0 00-4.022 1.004c-15.01 2.584-123.964 2.584-138.962 0a8.586 8.586 0 00-4.033-1.004c-5.083 0-9.208 4.45-9.208 9.932 0 11.01 9.333 11.335 31.873 12.14 13.434.49 31.496.747 50.852.747 82.707 0 82.707-1.717 82.707-12.887-.006-5.477-4.113-9.932-9.207-9.932z"></path></svg>
             <p>Snack Food</p>
         </a>
@@ -67,19 +67,19 @@
 {{-- Get the App --}}
 <section class="relative">
     {{-- app image --}}
-    <div class="sm:hidden w-full h-80">
-        <img class='sm:h-40 w-full h-80 object-cover' src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt7d030da8836b0909%2F62d188fdd612b23647236a43%2FSummerHiring7-16-mbg.png&w=828&q=75" alt="pizza image">
+    <div class="sm:hidden w-full h-80 ">
+        <img class='sm:h-40 w-full h-full object-cover' src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt7d030da8836b0909%2F62d188fdd612b23647236a43%2FSummerHiring7-16-mbg.png&w=828&q=75" alt="pizza image">
     </div>
     {{-- app image for sm --}}
-    <div class="xs:hidden md:h-60 sm:block sm:h-40 w-full h-80">
-        <img class=' md:h-60 sm:h-40 w-full h-80 object-cover' src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt2464b802e72eafe1%2F62d0935c30ed0e3641c636ec%2FP5-FreePizza-tbg.jpg&w=1080&q=75" alt="pizza image">
+    <div class="xs:hidden lg:h-32 md:h-60 sm:block sm:h-40 w-full h-80">
+        <img class='w-full h-full object-cover' src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt2464b802e72eafe1%2F62d0935c30ed0e3641c636ec%2FP5-FreePizza-tbg.jpg&w=1080&q=75" alt="pizza image">
     </div>
     {{-- app text --}}
-    <div class='md:items-center lg:right-40 md:flex-row md:text-center md:justify-center md:top-10 md:right-30 sm:bottom-5 sm:right-10 sm:text-left sm:items-start sm:justify-center absolute bottom-10 text-center text-white px-10 flex flex-col gap-3 items-center'>
+    <div class='md:items-center lg:right-20 md:flex-row md:text-center md:justify-center md:top-10 md:right-30 sm:bottom-5 sm:right-10 sm:text-left sm:items-start sm:justify-center absolute bottom-10 text-center text-white px-10 flex flex-col gap-3 items-center'>
         {{-- text --}}
-        <div class='sm:w-96 lg:w-1/2'>
-            <h1 class='lg:text-3xl  sm:text-xl font-bold mb-1'>FREE Pizza on Your First Delivery Order</h1>
-            <p class='sm:text-sm text-xs'>Enjoy 24/7 delivery and get a FREE large pizza on your first 7NOW® delivery order with code: PIZZA.</p>
+        <div class='sm:w-96 lg:w-2/3'>
+            <h1 class='lg:text-2xl  sm:text-xl font-bold mb-1'>FREE Pizza on Your First Delivery Order</h1>
+            <p class='lg:text-xl sm:text-sm text-xs'>Enjoy 24/7 delivery and get a FREE large pizza on your first 7NOW® delivery order with code: PIZZA.</p>
         </div>
         {{-- app button --}}
         <button class='w-32 bg-white rounded-3xl text-black px-4 py-2'>Get the App</button>
@@ -87,9 +87,9 @@
 </section>
 
 <!-- commerce product cards -->
-<section class='sm:flex-row sm:justify-center flex flex-col items-center'>
+<section class='pb-10 bg-white sm:flex-row sm:justify-center flex flex-col items-center'>
     {{-- product 1 --}}
-    <div class="w-full max-w-sm bg-white  ">
+    <div class="w-full max-w-sm bg-white ">
         <a href="{!!url('/store')!!}">
             <img class="p-8 rounded-t-lg" src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt922e441603bc59e8%2F63e510807c0ff856588555e1%2FP2-23-Homepage-Celsius.png&w=1200&q=75" alt="product image" />
         </a>
@@ -105,7 +105,7 @@
     {{-- product 2 --}}
     <div class="w-full max-w-sm bg-white  ">
         <a href="{!!url('/store')!!}">
-            <img class="p-8 rounded-t-lg" src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fbltcb297174947c348f%2F63e510809c6cb020b6883563%2FP2-23-Homepage-Starry.png&w=1200&q=75" alt="product image" />
+            <img class="p-8 rounded-t-lg " src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fbltcb297174947c348f%2F63e510809c6cb020b6883563%2FP2-23-Homepage-Starry.png&w=1200&q=75" alt="product image" />
         </a>
         <div class="px-5 pb-5 text-center">
             {{-- price --}}
@@ -117,7 +117,7 @@
         </div>
     </div>
     {{-- product 3 --}}
-    <div class="w-full max-w-sm bg-white  ">
+    <div class="w-full max-w-sm bg-white ">
         <a href="{!!url('/store')!!}">
             <img class="p-8 rounded-t-lg" src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt3b3350c78cdc6040%2F63e51080c7306d1b0f972773%2FP2-23-Homepage-Chex.png&w=1200&q=75" alt="product image" />
         </a>
@@ -133,7 +133,7 @@
 </section>
 
 {{-- Quote --}}
-<section class='mt-10 flex flex-col items-center py-10 bg-black text-white'>
+<section class='flex flex-col items-center py-10 bg-black text-white'>
     <h1 class='font-bold text-2xl'>Inside 7-Eleven</h1>
     <p class='text-base'>There's more to 7-Eleven than taquitos and Slurpee® drinks.</p>
 </section>
@@ -143,25 +143,25 @@
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
         <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
-            <!-- Item 5 -->
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt3ff4921a77c15791%2F63e5307d4036a756ba2890e8%2FPacMan7Collect.png&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt73febbd5fd58e7f9%2F6324d06afac7b2660da007af%2FBackToSchool-Hero-ContentHub.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt4e3dfdd40b1dbff7%2F63a0a2d6488c8256ed8f9660%2FHolidayHangover-Hero.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
-            <!-- Item 5 -->
+            <!-- Item 4 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt1045ad105db7159f%2F63640f827ec6792d067be193%2FGingerbrewedCookie-Cup-ContentHub.png&w=750&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt4e0a63f12f7e1919%2F6317925a564e9c2c655670ce%2FFallFlavors-Hero-ContentHub.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 5 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt4e3dfdd40b1dbff7%2F63a0a2d6488c8256ed8f9660%2FHolidayHangover-Hero.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt4e3dfdd40b1dbff7%2F63a0a2d6488c8256ed8f9660%2FHolidayHangover-Hero.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt4e3dfdd40b1dbff7%2F63a0a2d6488c8256ed8f9660%2FHolidayHangover-Hero.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt43c5c07e6d66e12b%2F62b8c2f7f8ac3b0f97e11bfa%2Fmovie-night-kit-hero-dbg.jpg&w=1920&q=75" class="h-96 object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             
         </div>
@@ -197,7 +197,7 @@
         {{-- card 1 --}}
         <div class='lg:h-80 md:h-60 sm:h-xbig h-big overflow-clip relative'>
             <img class='md:h-full sm:h-xbig h-big w-full object-cover hover:scale-105 duration-100'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt9499595aed6ece53%2F61de0464997c0e224de0a79f%2FInstagram.jpg&w=640&q=75" alt="image">
-            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-52 h-10 bg-black flex justify-center items-center'>
+            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-4/5 h-10 bg-black flex justify-center items-center'>
                 <a href="https://www.instagram.com/7eleven/">
                     <h1 class="text-white">INSTGRAM</h1>
                 </a>
@@ -206,7 +206,7 @@
         {{-- card 2 --}}
         <div class='lg:h-80 md:h-60 sm:h-xbig h-big overflow-clip relative'>
             <img class='md:h-full sm:h-xbig h-big w-full object-cover hover:scale-105 duration-100'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt22abcc7e1a5d2f84%2F61ddce40bf9cb8387cc1e11b%2FHome-Social-Twitter.gif&w=640&q=75" alt="image">
-            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-52 h-10 bg-black flex justify-center items-center'>
+            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-4/5 h-10 bg-black flex justify-center items-center'>
                 <a href="https://twitter.com/7Eleven">
                     <h1 class="text-white">TWITTER</h1>
                 </a>
@@ -215,7 +215,7 @@
         {{-- card 3 --}}
         <div class='lg:h-80 md:h-60 sm:h-xbig h-big overflow-clip relative'>
             <img class='md:h-full sm:h-xbig h-big w-full object-cover hover:scale-105 duration-100'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fbltaaea7365e80de59b%2F61de04649efff26ae7598859%2FFacebook.jpg&w=640&q=75" alt="image">
-            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-52 h-10 bg-black flex justify-center items-center'>
+            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-4/5 h-10 bg-black flex justify-center items-center'>
                 <a href="https://web.facebook.com/7Eleven?_rdc=1&_rdr">
                     <h1 class="text-white">FACEBOOK</h1>
                 </a>
@@ -224,7 +224,7 @@
          {{-- card 4 --}}
          <div class='lg:h-80 md:h-60 sm:h-xbig h-big overflow-clip relative'>
             <img class='md:h-full sm:h-xbig h-big w-full object-cover hover:scale-105 duration-100'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt466c52d23719c1ea%2F60ba96d2f8aee612d3995b44%2FHome-Social-Youtube.jpg&w=640&q=75" alt="image">
-            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-52 h-10 bg-black flex justify-center items-center'>
+            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-4/5 h-10 bg-black flex justify-center items-center'>
                 <a href="https://www.youtube.com/watch?v=903UyiCE_Kk">
                     <h1 class="text-white">YOUTUBE</h1>
                 </a>
@@ -233,7 +233,7 @@
         {{-- card 5 --}}
         <div class='lg:h-80 md:h-60 sm:h-xbig h-big overflow-clip relative'>
             <img class='md:h-full sm:h-xbig h-big w-full object-cover hover:scale-105 duration-100'src="https://www.7-eleven.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fbltbb619fd5c667ba2d%2Fblt100b34ce17b913bb%2F61ddc86b8aabbf6426b758e0%2FTikTok.jpg&w=640&q=75" alt="image">
-            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-52 h-10 bg-black flex justify-center items-center'>
+            <div class='absolute left-2/4 -translate-x-1/2 bottom-5 tra z-100 w-4/5 h-10 bg-black flex justify-center items-center'>
                 <a href="https://www.tiktok.com/@7eleven">
                     <h1 class="text-white">TIKTOK</h1>
                 </a>

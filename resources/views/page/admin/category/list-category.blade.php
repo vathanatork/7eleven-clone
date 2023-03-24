@@ -44,6 +44,8 @@
         </td>
     </tr>
     @endforeach
-    
 </table>
+<div class="mt-2">
+    {{ $categoryItems->links('pagination::bootstrap-4') }}
+</div>
 @endsection

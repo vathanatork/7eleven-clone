@@ -1,7 +1,7 @@
 @extends ('page/admin/layout/index')
 
 @section('content')
-    <h1>Edit Book</h1>
+    <h1>Edit Product</h1>
     <div class="container-fluid">
 		<ol class="breadcrumb mb-4">
 			<li class="breadcrumb-item"><a href="admin/product">View all product</a></li>
@@ -28,9 +28,9 @@
                 </div>
                 @endif
                 
-                {!! Form::model($book , array('route' => array('product.update', $book->id), 'method'=>'PUT','files'=>'true')) !!}
+                {!! Form::model($product , array('route' => array('product.update', $product->id), 'method'=>'PUT','files'=>'true')) !!}
                 {!! Form::label('name', 'Name:') !!}
-                {!! Form::text('name',null, array('class'=>'form-control')) !!}
+                {!! Form::text('name',$product->title, array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::label('category_id', 'Category:') !!}
                     <select class="form-control" name="category_id">
@@ -40,14 +40,14 @@
                     </select>
                 <br>
                 {!! Form::label('price', 'Price:') !!}
-                {!! Form::text('price',null, array('class'=>'form-control')) !!}
+                {!! Form::text('price',$product->price, array('class'=>'form-control')) !!}
 
                 {!! Form::label('image', 'Image:') !!}
                 {!! Form::file('image', array('class'=>'form-control')) !!}
                 <br>
                 
                 {!! Form::label('description', 'Description:') !!}
-                {!! Form::textarea('description',null, array('class'=>'form-control')) !!}
+                {!! Form::textarea('description',$product->description, array('class'=>'form-control')) !!}
                 <br>
                 {!! Form::submit('Update', array('class'=>'btn btn-primary')) !!}
                 <a class="btn btn-primary" href="{!! url('admin/product')!!}">Back</a>

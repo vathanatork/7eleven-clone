@@ -15,10 +15,11 @@
     {{-- title --}}
     <title>7-eleven</title>
 </head>
-<body class='h-screen overflow-x-hidden'>
-    
-        {{-- header --}}
+<body class='h-screen overflow-x-hidden bg-7elven-gray'>
+    {{-- header --}}
     @include('../page/client/layout/navbar')
+        
+    
     
     @yield('content')
 

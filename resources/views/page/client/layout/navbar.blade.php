@@ -1,6 +1,6 @@
 
 {{-- header --}}
-<section class='bg-white py-5 px-3 md:py-11 xl:px-40 flex justify-between items-center h-9 md:h-14 md:font-bold relative box-border'> 
+<section class='fixed top-0 z-30 bg-white py-5 px-3 md:py-11 xl:px-40 flex justify-between items-center h-9 md:h-14 md:font-bold w-full box-border'> 
     {{-- hamburger icon --}}
         <div class="header-logo md:hidden" data-hamberger>  
             <svg class="hover:stroke-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -14,11 +14,11 @@
         </div>
         {{-- mid head category --}}
         <div class='md:flex md:gap-5 hidden lg:text-xl md:text-md'>
-            <div class='cursor-pointe '><a href="#">FOOD</a></div>
-            <div class='cursor-pointe '><a href="#">DRINK</a></div>
+            <div class='cursor-pointe '><a href="{!!url('/store/filter/Food')!!}">FOOD</a></div>
+            <div class='cursor-pointe '><a href="{!!url('/store/filter/Drink')!!}">DRINK</a></div>
             <div class='cursor-pointe '><a href="#">7REWARDS</a></div>
-            <div class='cursor-pointer'><a href="#">Order7NOWDelivery</a></div>
-            <div class='cursor-pointer'><a href="#">Shop7Collection</a></div>
+            <div class='cursor-pointer'><a href="{!!url('/about')!!}">ABOUT US</a></div>
+            <div class='cursor-pointer'><a href="{!!url('/contact')!!}">CONTACT US</a></div>
         </div>
     </div>
     {{-- right aside icon --}}
@@ -56,7 +56,7 @@
 
 {{-- small screen --}}
 {{-- slide nav --}}
-<div class='z-20 shadow-md shadow-blur-20  bg-white pb-10 absolute lef-0 top-0 mt-2 pl-3 md:hidden hidden  md:px-40  md:text-lg' data-slide-nav>
+<div class='z-30 shadow-md shadow-blur-20  bg-white pb-10 absolute lef-0 top-0 mt-2 pl-3 md:hidden hidden  md:px-40  md:text-lg' data-slide-nav>
     {{-- header category--}}
     <div class="flex justify-between w-screen pr-5 md:hidden">
         {{-- logo --}}

@@ -4,7 +4,7 @@
     <div class="card mb-3" style="max-width: 700px;">
         <div class="row g-0">
         <div class="col-md-8">
-            <img src="{!!asset('img/products'.$book->image)!!}" class="img-fluid rounded-start" alt="{{$book->name}}">
+            <img src="{!!asset('img/'.$book->image)!!}" class="img-fluid rounded-start" alt="{{$book->name}}">
         </div>
         <div class="col-md-4">
             <div class="card-body pt-0">
