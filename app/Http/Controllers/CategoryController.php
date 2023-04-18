@@ -106,7 +106,9 @@ class CategoryController extends Controller
 
     public function selectByCategory(string $search){
         $messages = message::where('slag','1')->paginate(4);
-        $categorys = DB::select("SELECT * FROM  categories where type ='$search'");
+        $categorys = DB::table('categories')
+        ->where('type', $search)
+        ->paginate(5);
         $sorts = DB::select("SELECT DISTINCT type FROM  categories");
         return view('page.admin.category.list-category')->with('categoryItems',$categorys)->with('distinctItems',$sorts)->with('messages',$messages);
     } 

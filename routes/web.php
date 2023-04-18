@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\testapiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +53,5 @@ Route::GET('/admin/user',[UserController::class,'index']);
 Route::POST('/register',[RegisterController::class,'store'])->middleware('guest');
 Route::POST('/logout',[RegisterController::class,'destroy'])->middleware('auth');
 Route::POST('/login',[RegisterController::class,'login'])->middleware('guest');
+
+

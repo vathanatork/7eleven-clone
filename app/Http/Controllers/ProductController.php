@@ -152,7 +152,7 @@ class ProductController extends Controller
                     ->select('products.id', 'products.title', 'products.description', 'products.image', 'categories.Name')
                     ->paginate(10);
         
-        return view('page.admin.list-books')->with('books',$products)->with('message',$message);
+        return view('page.admin.list-books')->with('books',$products)->with('messages',$messages);
     }
 
     // filter by Title and Category ASC

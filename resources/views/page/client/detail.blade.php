@@ -1,3 +1,4 @@
+
 @extends('../page/client/layout/app')
 
 @section("content")
@@ -19,11 +20,16 @@
         <div class="xs:hidden md:block font-bold">
             <h2 class="lg:text-2xl text-md uppercase">< {{$product->category->Name}}</h2>
             <h1 class="xl:text-5xl lg:text-5xl text-3xl">{{$product->title}}</h1>
+            <h1 class="xl:text-5xl lg:text-5xl text-3xl text-red-500">{{$product->price}}$</h1>
         </div>
         {{-- description --}}
         <p class="xl:max-w-5xl xl:text-3xl lg:max-w-3xl lg:text-2xl  md:font-semibold md:text-md max-w-3xl">{{$product->description}}</p>
-        <a href="#"><button class="bg-7eleven font-bold text-white px-5 py-2 rounded-3xl">Order Now</button></a>
+        
+        {{-- check out --}}
+        @include('../page/client/checkout')
+        
     </div>
+
 
 </section>
 
